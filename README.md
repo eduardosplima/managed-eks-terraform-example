@@ -1,5 +1,9 @@
 # Exemplo de criação de cluster EKS gerenciado - Terraform
 
+## Visão macro da arquitetura
+
+![Cluster EKS - Visão Macro](/docs/macro_architecture.png "Cluster EKS - Visão Macro")
+
 ## Pré-requisitos
 
 1. aws cli
