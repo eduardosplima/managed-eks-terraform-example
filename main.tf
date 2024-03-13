@@ -43,6 +43,7 @@ module "eks" {
       instance_types = [var.node_instance_type]
       min_size       = var.nodes_min_capacity
       max_size       = var.nodes_max_capacity
+      capacity_type  = var.node_capacity_type
 
       subnets = module.vpc.private_subnets
     }

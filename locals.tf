@@ -1,6 +1,6 @@
 locals {
   vpc_name        = "${var.cluster_name}-vpc"
-  private_subnets = [for i in var.azs : cidrsubnet(var.vpc_cidr, 8, index(var.azs, i) + length(var.azs))]
-  public_subnets  = [for i in var.azs : cidrsubnet(var.vpc_cidr, 8, index(var.azs, i))]
+  newbits         = ceil(log(length(var.azs) * 2, 2))
+  private_subnets = [for i in var.azs : cidrsubnet(var.vpc_cidr, local.newbits, index(var.azs, i) * 2)]
+  public_subnets  = [for i in var.azs : cidrsubnet(var.vpc_cidr, local.newbits, (index(var.azs, i) * 2) + 1)]
 }
-  
